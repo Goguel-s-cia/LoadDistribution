@@ -1,13 +1,9 @@
 package model;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 public class Carga {
     private int id;
-    private int tipo;      // 9, 5, 3 etc.
-    private int urgencia;  // 1, 2, 3
+    private int tipo;      
+    private int urgencia;  
     private int peso;
     private String descricao;
     private int prioridade;
@@ -24,11 +20,6 @@ public class Carga {
     }
 
     private void validar() {
-        // Tipos válidos (exemplo do PDF)
-        Set<Integer> tiposValidos = new HashSet<>(Arrays.asList(9, 5, 3)); 
-        // Nota: Se quiser aceitar qualquer tipo, remova a checagem acima. 
-        // O PDF cita esses como exemplos, mas validação é bom.
-
         if (this.urgencia < 1 || this.urgencia > 3) {
             throw new IllegalArgumentException("Urgência deve ser 1, 2 ou 3.");
         }

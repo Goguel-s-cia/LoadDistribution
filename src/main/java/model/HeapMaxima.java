@@ -51,11 +51,9 @@ public class HeapMaxima {
         return this.quantidade == 0;
     }
 
-    // --- MOVIMENTAÇÃO DO HEAP (0-INDEXADO) ---
-
     private void subir(int i) {
         int pai = (i - 1) / 2;
-        // Enquanto não for a raiz E o filho for "maior" que o pai
+        // Enquanto não for a raiz e o filho for "maior" que o pai
         while (i > 0 && ehMaisPrioritario(i, pai)) {
             trocar(i, pai);
             i = pai;
@@ -81,7 +79,7 @@ public class HeapMaxima {
         }
     }
 
-    // --- CRITÉRIOS DE DESEMPATE  ---
+    // --- Critérios de desempate  ---
     private boolean ehMaisPrioritario(int indiceA, int indiceB) {
         Carga a = heap[indiceA];
         Carga b = heap[indiceB];
@@ -137,7 +135,6 @@ public class HeapMaxima {
             
             for (int i = 0; i < quantidade; i++) {
                 Carga c = heap[i];
-                // Label com detalhes: ID, Prioridade, Nome
                 String label = String.format("{ID: %d | Pri: %d | %s}", c.getId(), c.getPrioridade(), c.getDescricao());
                 writer.write(String.format("  %d [label=\"%s\"];\n", i, label));
                 
